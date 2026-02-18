@@ -62,7 +62,7 @@ export function WorkWindow({ onClose }: WorkWindowProps) {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/components/public/images/refsheet.jpg"
+                src="/images/refsheet.jpg"
                 alt="Reference sheet illustration"
                 className="w-full h-auto object-cover"
               />

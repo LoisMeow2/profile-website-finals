@@ -147,7 +147,7 @@ export function CardRevealSystem({
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/components/public/images/card_back.jpg"
+                    src="/images/card_back.jpg"
                     alt="Card back"
                     className="w-full h-full object-cover select-none"
                     draggable={true}

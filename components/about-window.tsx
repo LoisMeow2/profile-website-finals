@@ -19,7 +19,7 @@ export function AboutWindow({ onClose }: AboutWindowProps) {
         <div className="flex items-start gap-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/components/public/images/square.jpg"
+            src="/images/square.jpg"
             alt="Lois profile picture"
             className="w-20 h-20 rounded-lg object-cover border-2 shrink-0"
             style={{ borderColor: "var(--border)" }}
