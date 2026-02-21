@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Nunito, Lilita_One } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-import './globals.css'
+import '../frontend/styles/globals.css'
 
 const nunito = Nunito({
   subsets: ['latin'],
