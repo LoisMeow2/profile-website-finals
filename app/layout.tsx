@@ -54,7 +54,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${nunito.variable} ${lilitaOne.variable}`}>
       <head>
-        <link rel="preload" href="/images/card_back.jpg" as="image" />
+        <link rel="preload" href="/front/images/card_back.jpg" as="image" />
       </head>
       <body className="font-sans antialiased overflow-x-hidden">
         {children}
