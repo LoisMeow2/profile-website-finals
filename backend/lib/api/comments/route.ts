@@ -1,10 +1,5 @@
 import { NextResponse } from "next/server"
-import { createClient } from "@supabase/supabase-js"
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
+import { supabase } from "@/backend/lib/supabaseClient"
 
 export async function GET() {
   const { data, error } = await supabase
@@ -19,8 +14,8 @@ export async function GET() {
 
   const formatted = data.map((c: any) => ({
     id: c.id,
-    username: c.user_name, // Map user_name (DB) -> username (Frontend)
-    text: c.content,       // Map content (DB) -> text (Frontend)
+    username: c.user_name,
+    text: c.content,
     likes: c.likes_count?.[0]?.count || 0,
     liked_by_me: false, 
     created_at: c.created_at,
@@ -36,8 +31,8 @@ export async function POST(req: Request) {
     const { data, error } = await supabase
       .from("comments")
       .insert({ 
-        user_name: username, // Map frontend -> DB
-        content: text        // Map frontend -> DB
+        user_name: username,
+        content: text
       })
       .select()
       .single()

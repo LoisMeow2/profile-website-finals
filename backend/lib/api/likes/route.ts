@@ -1,10 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+import { supabase } from "@/backend/lib/supabaseClient";
 
 export async function POST(req: Request) {
   try {
@@ -21,14 +16,12 @@ export async function POST(req: Request) {
 
     if (likeError) throw likeError;
 
-    // 2. Increment the likes count on the comments table 
-    // (This keeps your 'likes' column in sync with the 'likes' table)
+    // 2. Increment the likes count using the SQL function
     const { error: updateError } = await supabase.rpc('increment_likes', { 
       row_id: comment_id 
     });
 
-    // NOTE: If you haven't created the 'increment_likes' function in SQL yet, 
-    // the code below explains how to do it.
+    if (updateError) throw updateError;
 
     return NextResponse.json({ message: "Liked successfully" });
   } catch (error: any) {
